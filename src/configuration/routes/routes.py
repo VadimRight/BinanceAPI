@@ -1,11 +1,12 @@
 from dataclasses import dataclass
 from fastapi import FastAPI
 
+from src.internal.router.currency import router
 
-@dataclass
+
+@dataclass(frozen=True)
 class Route:
     routers: tuple
 
     def register_router(self, app: FastAPI):
-        for router in self.routers:
-            app.include_router(router)
+        app.include_router(router)

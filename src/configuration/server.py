@@ -9,6 +9,8 @@ class Server:
 
     def __init__(self, app: FastAPI):
         self.__app = app
+        self.__register_route(app)
+        self.__register_events(app)
 
     def get_app(self) -> FastAPI:
         return self.__app
