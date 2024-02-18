@@ -1,8 +1,10 @@
+from types import NoneType
+
 from fastapi import APIRouter
 from src.pkg.redis_tools.tools import RedisTools
 from fastapi import HTTPException
 router = APIRouter(
-    prefix='/api/currency'
+    prefix='/api/v1/currency'
 )
 
 
