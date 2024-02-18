@@ -8,7 +8,7 @@ router = APIRouter(
 
 @router.get('/{pair}')
 def get_pair(pair: str):
-    if pair not in [s.encode("utf-8") for s in RedisTools.get_keys()]:
+    if pair not in [s.decode("utf-8") for s in RedisTools.get_keys()]:
         raise HTTPException(status_code=404, detail="Pair is not found")
     return {
         "pair": pair,
