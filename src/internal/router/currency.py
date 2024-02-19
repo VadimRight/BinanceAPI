@@ -9,10 +9,13 @@ router = APIRouter(
 
 
 @router.get('/{pair}')
-def get_pair(pair: str):
-    if pair not in [s.decode("utf-8") for s in RedisTools.get_keys()]:
-        raise HTTPException(status_code=404, detail="Pair is not found")
+def get_currency_pair(pair: str):
+    if pair not in [s.decode('utf-8') for s in RedisTools.get_keys()]:
+        return {
+            'error': 'This pair doesn\'t exists'
+        }
+
     return {
-        "pair": pair,
-        "price": RedisTools.get_pair(pair)
+        'pair': pair,
+        'price': RedisTools.get_pair(pair)
     }
