@@ -1,4 +1,4 @@
-version: 'latest'
+version: '3'
 services:
   src:
     build:
@@ -30,8 +30,8 @@ services:
       context: .
       dockerfile: docker/redis/Dockerfile
     environment:
-      - REDIS_HOST = redis
-      - REDIS_PORT = 6379
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
 
     ports:
       - 6379:6379

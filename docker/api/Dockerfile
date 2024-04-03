@@ -1,4 +1,4 @@
-FROM python:3.11.1
+FROM python:3.10
 
 RUN mkdir -p /usr/src/
 WORKDIR /usr/src/
